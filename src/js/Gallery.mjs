@@ -5,13 +5,17 @@ const galleryGrid = document.querySelector('.gallery-grid');
 let currentPage = parseInt(getParam('page')) || 1;
 const photosPerPage = 10;
 
+const apiBaseUrl = process.env.NODE_ENV === 'production'
+  ? 'https://red-planet-explorers.onrender.com'
+  : 'http://localhost:5000';
+
 export async function initImageGallery() {
   const rover = getParam('rover');
   const sol = getParam('sol');
   const camera = getParam('camera');
 
   const cameraQuery = camera ? `&camera=${camera}` : '';
-  const endpoint = `http://localhost:5000/api/rovers/${rover}/photos?sol=${sol}${cameraQuery}`;
+  const endpoint = `${apiBaseUrl}/api/rovers/${rover}/photos?sol=${sol}${cameraQuery}`;
   console.log('Fetching photos from:', endpoint);
 
   try {
