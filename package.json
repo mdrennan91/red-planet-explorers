@@ -4,15 +4,11 @@
   "description": "Explore the Red Planet through the lens of NASA's rovers: Curiosity, Opportunity, and Spirit. This website allows users to search for images taken by the Mars rovers based on various filters such as Martian sol, Earth date, and camera type. Users can also save their favorite images and revisit them at any time.",
   "main": "main.js",
   "scripts": {
-    "start": "vite",
-    "build": "vite build --emptyOutDir",
-    "preview": "vite preview",
-    "start:backend": "node server.js",
-    "start:all": "npm run build && npm run start:backend" 
+    "start": "vite",  
+    "build": "vite build --emptyOutDir",  
+    "preview": "vite preview",  
+    "start:backend": "node server.js"  
   },
-  "keywords": [],
-  "author": "Mitchel Drennan",
-  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -29,14 +25,7 @@
       "@babel/preset-env"
     ]
   },
-  "browserslist": [
-    "last 3 and_chr versions",
-    "last 3 chrome versions",
-    "last 3 opera versions",
-    "last 3 ios_saf versions",
-    "last 3 safari versions"
-  ],
   "engines": {
-  "node": ">=16"
-}
+    "node": ">=16"
+  }
 }
