@@ -20,8 +20,12 @@ export function convertToText(res) {
 }
 
 export async function fetchMarsImages(rover, params) {
+  const apiBaseUrl = process.env.NODE_ENV === 'production'
+    ? 'https://red-planet-explorers.onrender.com' 
+    : 'http://localhost:5000';
+
   const apiKey = import.meta.env.VITE_NASA_API_KEY;  
-  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?${new URLSearchParams({
+  const url = `${apiBaseUrl}/api/rovers/${rover}/photos?${new URLSearchParams({
     ...params,
     api_key: apiKey
   })}`;
