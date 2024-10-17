@@ -1,17 +1,21 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const path = require("path");
+
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "https://red-planet-explorers.onrender.com" }));
+
+app.use(express.static(path.join(__dirname, "dist")));
 
 app.get("/api/rovers/:rover/photos", async (req, res) => {
   const { rover } = req.params;
   const { sol, earth_date, camera } = req.query;
-  const apiKey = process.env.VITE_NASA_API_KEY;  
+  const apiKey = process.env.VITE_NASA_API_KEY;
 
   const fetch = (await import("node-fetch")).default;
   const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol || ""}&earth_date=${earth_date || ""}&camera=${camera || ""}&api_key=${apiKey}`;
@@ -31,6 +35,10 @@ app.get("/api/rovers/:rover/photos", async (req, res) => {
     console.error(`Error fetching photos for ${rover}:`, error.message);
     res.status(500).send({ error: "Failed to fetch rover photos from NASA API." });
   }
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
 app.listen(PORT, () => {
