@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Red Planet Explorers | Image Search</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="../js/imageSearch.js" type="module"></script>
+  </head>
+  <body>
+    <header id="main-header"></header>
+
+    <main>
+      <section class="rover-details">
+        <h1 id="rover-name"></h1>
+        <div class="collection-info">
+          <p id="photo-collection-info"></p>
+        </div>
+        <img id="rover-image" src="" alt="Rover image" />
+      </section>
+
+      <section class id="rover-info">
+      </section>
+
+      <section class="search-photos">
+        <h3>Search for Photos</h3>
+        
+        <label for="sol">Sol (Martian Day):</label>
+        <input type="number" id="sol" name="sol" />
+
+        <label for="earth_date">Earth Date:</label>
+        <input type="date" id="earth_date" name="earth_date" />
+
+        <label for="camera">Camera Type:</label>
+        <select id="camera">
+          <option value="">Select Camera</option>
+        </select>
+
+        <button id="search-photos-btn">Search Photos</button>
+      </section>
+
+      <section class="camera-info">
+        <h3>Available Cameras</h3>
+        <ul id="camera-list">
+        </ul>
+      </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+  </body>
+</html>
