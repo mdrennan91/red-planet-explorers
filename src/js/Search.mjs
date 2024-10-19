@@ -29,6 +29,9 @@ export async function updateRoverDetails(rover) {
     const roverInfoElement = document.getElementById('rover-info');
     if (roverInfoElement) {
       roverInfoElement.innerHTML = `
+        <h3>Mission Manifest</h3>
+        <p><strong>Total Photos:</strong> ${totalPhotos}</p>
+        <p><strong>Sols:</strong> ${maxSol}</p>
         <p><strong>Launch Date:</strong> ${launchDate}</p>
         <p><strong>Landing Date:</strong> ${landingDate}</p>
         <p><strong>Status:</strong> ${status.charAt(0).toUpperCase() + status.slice(1)}</p>
@@ -61,6 +64,21 @@ export async function updateRoverDetails(rover) {
     photoInfoElement.textContent = 'Error fetching rover details.';
   }
 }
+
+export async function getRoverDetails(rover) {
+  const apiKey = import.meta.env.VITE_NASA_API_KEY;
+  const roverApiUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}?api_key=${apiKey}`;
+
+  try {
+    const response = await fetch(roverApiUrl);
+    const data = await convertToJson(response);
+    return data.rover;
+  } catch (error) {
+    console.error(`Error fetching details for rover ${rover}:`, error);
+    return null;
+  }
+}
+
 
 export function setupCameraDropdown(rover) {
   updateRoverDetails(rover); 

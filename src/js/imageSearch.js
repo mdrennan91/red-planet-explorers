@@ -1,5 +1,5 @@
 import { loadHeaderFooter, getParam } from "./utils.mjs";
-import { updateRoverDetails, roverImages } from "./Search.mjs";
+import { updateRoverDetails, roverImages, getRoverDetails } from "./Search.mjs";
 
 loadHeaderFooter();
 
@@ -10,6 +10,17 @@ const roverImageElement = document.getElementById("rover-image");
 
 roverNameElement.textContent = rover.charAt(0).toUpperCase() + rover.slice(1);
 roverImageElement.src = roverImages[rover];
+
+async function updateSolPlaceholder() {
+  const roverDetails = await getRoverDetails(rover);
+  if (roverDetails) {
+    const maxSol = roverDetails.max_sol;
+    const solInput = document.getElementById("sol");
+    solInput.placeholder = `Between 1 - ${maxSol}`; 
+  }
+}
+
+updateSolPlaceholder();
 
 updateRoverDetails(rover);
 

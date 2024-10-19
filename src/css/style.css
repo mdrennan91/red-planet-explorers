@@ -522,14 +522,27 @@ main section {
   font-family: 'Noto Sans Display', sans-serif;
 }
 
+#rover-info h3 {
+  font-size: 2rem;
+  margin: 10px 0 20px 0;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+}
+
 #rover-info strong {
   font-weight: bold;
   color: #ff6347;
 }
 
 .camera-info h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+  font-size: 2rem;
+  margin: 10px 0 20px 0;
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
+}
+
+.photo-count {
+  font-size: 1.2rem;
+  color: #ff6347;
+  margin-top: 5px;
 }
