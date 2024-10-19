@@ -8,7 +8,21 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({ origin: "https://red-planet-explorers.onrender.com" }));
+const allowedOrigins = [
+  "https://red-planet-explorers.onrender.com", 
+  "http://localhost:5173"  
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  }
+}));
 
 app.use(express.static(path.join(__dirname, "dist")));
 
@@ -18,7 +32,21 @@ app.get("/api/rovers/:rover/photos", async (req, res) => {
   const apiKey = process.env.VITE_NASA_API_KEY;
 
   const fetch = (await import("node-fetch")).default;
-  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol || ""}&earth_date=${earth_date || ""}&camera=${camera || ""}&api_key=${apiKey}`;
+
+  let url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?`;
+
+  if (sol) {
+    url += `sol=${sol}&`;
+  } else if (earth_date) {
+    url += `earth_date=${earth_date}&`;
+  }
+
+  if (camera) {
+    url += `camera=${camera}&`;
+  }
+
+  url += `api_key=${apiKey}`;
+
   console.log(`Fetching photos for ${rover}: ${url}`);
 
   try {

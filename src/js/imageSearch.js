@@ -15,8 +15,20 @@ updateRoverDetails(rover);
 
 document.querySelector("#search-photos-btn").addEventListener("click", () => {
   const sol = document.querySelector("#sol").value;
+  const earthDate = document.querySelector("#earth_date").value;
   const camera = document.querySelector("#camera").value;
 
-  const galleryUrl = `../image-gallery/index.html?rover=${rover}&sol=${sol}&camera=${camera}`;
+  let galleryUrl = `../image-gallery/index.html?rover=${rover}`;
+
+  if (sol && sol !== "null") {
+    galleryUrl += `&sol=${sol}`;
+  } else if (earthDate) {
+    galleryUrl += `&earth_date=${earthDate}`;
+  }
+
+  if (camera) {
+    galleryUrl += `&camera=${camera}`;
+  }
+
   window.location.href = galleryUrl;
 });

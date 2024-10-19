@@ -4,8 +4,8 @@ import { fetchPhotoDetails, updatePhotoDetails } from "./SinglePhotoView.mjs";
 loadHeaderFooter();
 
 const photoId = getParam("id");
-const rover = getParam("rover");
-const sol = getParam("sol");
+const rover = getParam("rover") || "defaultRover"; 
+const sol = getParam("sol") || "defaultSol";       
 
 async function initSinglePhotoView() {
   const photo = await fetchPhotoDetails(photoId, rover, sol);

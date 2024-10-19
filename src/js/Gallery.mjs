@@ -12,10 +12,21 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
 export async function initImageGallery() {
   const rover = getParam('rover');
   const sol = getParam('sol');
+  const earthDate = getParam('earth_date');
   const camera = getParam('camera');
 
-  const cameraQuery = camera ? `&camera=${camera}` : '';
-  const endpoint = `${apiBaseUrl}/api/rovers/${rover}/photos?sol=${sol}${cameraQuery}`;
+  let endpoint = `${apiBaseUrl}/api/rovers/${rover}/photos?`;
+
+  if (sol) {
+    endpoint += `sol=${sol}`;
+  } else if (earthDate) {
+    endpoint += `earth_date=${earthDate}`;
+  }
+
+  if (camera) {
+    endpoint += `&camera=${camera}`;
+  }
+
   console.log('Fetching photos from:', endpoint);
 
   try {
@@ -23,8 +34,8 @@ export async function initImageGallery() {
     const data = await convertToJson(response);
 
     if (data.photos.length > 0) {
-      document.getElementById('gallery-title').textContent = `${rover.charAt(0).toUpperCase() + rover.slice(1)} Rover Photos - Sol ${sol}`;
-      document.getElementById('gallery-subtitle').textContent = `There were ${data.photos.length} photos taken by the ${camera ? camera.toUpperCase() : 'all cameras'} camera on Sol ${sol}.`;
+      document.getElementById('gallery-title').textContent = `${rover.charAt(0).toUpperCase() + rover.slice(1)} Rover Photos - ${sol ? `Sol ${sol}` : `Earth Date ${earthDate}`}`;
+      document.getElementById('gallery-subtitle').textContent = `There were ${data.photos.length} photos taken by the ${camera ? camera.toUpperCase() : 'all cameras'} camera on ${sol ? `Sol ${sol}` : `Earth Date ${earthDate}`}.`;
 
       const startIndex = (currentPage - 1) * photosPerPage;
       const endIndex = Math.min(startIndex + photosPerPage, data.photos.length);
@@ -33,7 +44,7 @@ export async function initImageGallery() {
       displayGallery(paginatedPhotos, rover, sol, camera);
       setupPagination(data.photos.length, photosPerPage, currentPage, handlePageChange);
     } else {
-      galleryGrid.innerHTML = '<p>No photos found for the specified sol and camera.</p>';
+      galleryGrid.innerHTML = '<p>No photos found for the specified sol or Earth date and camera.</p>';
     }
   } catch (error) {
     console.error('Error fetching photos:', error);
@@ -47,7 +58,7 @@ export function displayGallery(photos, rover, sol, camera) {
 
     return `
       <div class="gallery-item" data-earth-date="${photo.earth_date}">
-        <a href="../single-photo/index.html?id=${photo.id}">
+        <a href="../single-photo/index.html?id=${photo.id}&rover=${rover}&sol=${sol}">
           <img src="${photo.img_src}" alt="Mars photo" />
         </a>
         <button class="heart-icon ${isFavorited(photo.id) ? 'favorited' : ''}" data-photo-id="${photo.id}">❤</button>
