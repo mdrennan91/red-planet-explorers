@@ -6,10 +6,8 @@ loadHeaderFooter();
 const rover = getParam("rover");
 
 const roverNameElement = document.getElementById("rover-name");
-const roverImageElement = document.getElementById("rover-image");
 
-roverNameElement.textContent = rover.charAt(0).toUpperCase() + rover.slice(1);
-roverImageElement.src = roverImages[rover];
+roverNameElement.innerHTML = `${rover.toUpperCase()} <span class="highlight">ROVER</span>`;
 
 async function updateSolPlaceholder() {
   const roverDetails = await getRoverDetails(rover);

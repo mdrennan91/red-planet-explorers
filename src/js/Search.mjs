@@ -24,17 +24,15 @@ export async function updateRoverDetails(rover) {
     const status = roverData.status;
 
     const photoInfoElement = document.getElementById('photo-collection-info');
-    photoInfoElement.innerHTML = `There are <span class="highlight">${totalPhotos}</span> photos in this collection from <span class="highlight">${maxSol}</span> sols of ${rover.charAt(0).toUpperCase() + rover.slice(1)} exploring the Red Planet.`;
+    photoInfoElement.innerHTML = `There are <span class="highlight">${totalPhotos}</span> photos in this collection from <span class="highlight">${maxSol}</span> sols <br> of ${rover.charAt(0).toUpperCase() + rover.slice(1)} exploring the Red Planet.`;
 
     const roverInfoElement = document.getElementById('rover-info');
     if (roverInfoElement) {
       roverInfoElement.innerHTML = `
-        <h3>Mission Manifest</h3>
-        <p><strong>Total Photos:</strong> ${totalPhotos}</p>
-        <p><strong>Sols:</strong> ${maxSol}</p>
         <p><strong>Launch Date:</strong> ${launchDate}</p>
         <p><strong>Landing Date:</strong> ${landingDate}</p>
         <p><strong>Status:</strong> ${status.charAt(0).toUpperCase() + status.slice(1)}</p>
+        
       `;
     } else {
       console.error('Rover info element not found.');
