@@ -10,10 +10,22 @@
 <body>
     <header id="main-header"></header>
 
-    <main>
+    <main class="divider">
+        <div class="hero">
+            <img
+                src="/images/mars-hero.jpg"
+                alt="Image of Mars surface"
+            />
+            <div class="hero-text">
+                <h1>IMAGE <span class="highlight">VIEWER</span></h1>
+                <p>Larger Image Perspective for <span class="highlight">More Details</span></p>
+            </div>
+        </div>
+
         <section class="photo-view">
             <img id="photo-img" src="" alt="Mars photo" />
             <div id="photo-details">
+                <h3>Photo Details</h3>
                 <p><strong>Rover:</strong> <span id="photo-rover"></span></p>
                 <p><strong>Camera:</strong> <span id="photo-camera-name"></span></p>
                 <p><strong>Earth Date:</strong> <span id="photo-earth-date"></span></p>
