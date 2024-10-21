@@ -574,25 +574,53 @@ main section {
   color: red;
 }
 
-.pagination button {
-  padding: 10px 20px; 
-  background-color: #ff6f61;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  margin: 0 10px;
-  font-size: 1rem;
-  font-weight: bold;
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 3rem;
+  font-family: 'Noto Sans Display', sans-serif;
+}
+
+.pagination-btn {
+  padding: 5px 10px;
+  border: 1px solid #333333;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  border-radius: 50px;
+  font-family: 'Noto Sans Display', sans-serif;
 }
 
-.pagination button:hover {
-  background-color: #e5533f;
+.pagination .prev-btn {
+  padding: 5px 10px;
+  border: 1px solid #333333;
+  background-color: #333333;
+  color: white;
+  cursor: pointer;
+  border-radius: 12px;
 }
 
-.pagination button:disabled {
-  background-color: #ccc;
+.pagination .next-btn {
+  padding: 5px 10px;
+  border: 1px solid #333333;
+  background-color: #333333;
+  color: white;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.pagination-btn.active {
+  background-color: #ff6347;
+  color: #333333;
+  font-weight: bold;
+}
+
+.pagination-btn:hover {
+  background-color: #ff6347;
+}
+
+
+.pagination-btn:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
@@ -608,7 +636,7 @@ main section {
 
 #photo-img {
   width: 100%;
-  max-width: 900px;
+  max-width: 1400px;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
