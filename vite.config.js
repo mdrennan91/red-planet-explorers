@@ -16,6 +16,7 @@ export default defineConfig({
         gallery: resolve(__dirname, "src/image-gallery/index.html"),
         favorites: resolve(__dirname, "src/favorites-gallery/index.html"),
         photo: resolve(__dirname, "src/single-photo/index.html"),
+        featured: resolve(__dirname, "src/featured-gallery/index.html"),
       },
     },
   },

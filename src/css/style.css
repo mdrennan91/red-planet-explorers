@@ -286,6 +286,10 @@ main section {
   background-color: #ff6347; 
 }
 
+.mission a {
+  color: #ff6347
+}
+
 .rovers-section {
   display: flex;
   justify-content: center; 
@@ -551,9 +555,7 @@ main section {
   transform: scale(1.03);
 }
 
-.gallery-item:hover {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
+
 
 .heart-icon {
   position: absolute;
@@ -731,9 +733,10 @@ main section {
 }
 
 .filter-container {
-  display: flex;
+  display: block;
   justify-content: center;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .filter-options {
@@ -785,4 +788,19 @@ main section {
 
 .filter-controls button:hover {
   background-color: #ff6f61;
+}
+
+.filter-container::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 20px 0 0;
+  background-color: #ff6347;
+}
+
+.gallery-item p {
+  font-size: 1.4rem;
+  color: #333;
+  margin: 10px 0;
 }
