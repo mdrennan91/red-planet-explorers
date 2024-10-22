@@ -1,6 +1,9 @@
 import { addFavorite, removeFavorite, isFavorited } from './utils.mjs';
+import { setupPagination } from './Pagination.mjs';
 
 const galleryGrid = document.querySelector('.gallery-grid');
+let currentPage = parseInt(new URLSearchParams(window.location.search).get('page')) || 1;
+const photosPerPage = 10;
 
 export async function initFeaturedGallery() {
   try {
@@ -8,7 +11,12 @@ export async function initFeaturedGallery() {
     const data = await response.json();
 
     if (data.length > 0) {
-      displayFeaturedGallery(data);
+      const startIndex = (currentPage - 1) * photosPerPage;
+      const endIndex = Math.min(startIndex + photosPerPage, data.length);
+      const paginatedPhotos = data.slice(startIndex, endIndex);
+
+      displayFeaturedGallery(paginatedPhotos);
+      setupPagination(data.length, photosPerPage, currentPage, handlePageChange);
     } else {
       galleryGrid.innerHTML = '<p>No featured images available at the moment.</p>';
     }
@@ -26,8 +34,7 @@ function displayFeaturedGallery(photos) {
           <img src="${photo.img_src}" alt="Mars photo from ${photo.rover}" />
         </a>
         <p><span class="highlight">Rover:</span> ${photo.rover} | <span class="highlight">Camera:</span> ${photo.camera}</p>
-        <p><span class="highlight">Sol:</span> ${photo.sol} | <span class="highlight">Earth Date:</span> ${photo.earth_date} </p>
-        <button class="heart-icon ${isFavorited(photo.id) ? 'favorited' : ''}" data-photo-id="${photo.id}">❤</button>
+        <p><span class="highlight">Sol:</span> ${photo.sol} | <span class="highlight">Earth Date:</span> ${photo.earth_date}</p>
       </div>
     `;
   }).join('');
@@ -51,10 +58,10 @@ function setupGalleryIcons(photos) {
       const photoDetails = {
         id: photoId,
         img_src: photoSrc,
-        rover: photo.rover,
-        camera: photo.camera,
+        rover: photos.find(photo => photo.id === photoId).rover,
+        camera: photos.find(photo => photo.id === photoId).camera,
         earth_date: galleryItem.getAttribute('data-earth-date'),
-        sol: photo.sol
+        sol: photos.find(photo => photo.id === photoId).sol
       };
 
       if (isFavorited(photoId)) {
@@ -66,4 +73,9 @@ function setupGalleryIcons(photos) {
       }
     });
   });
+}
+
+function handlePageChange(newPage) {
+  const url = `index.html?page=${newPage}`;
+  window.location.href = url;
 }

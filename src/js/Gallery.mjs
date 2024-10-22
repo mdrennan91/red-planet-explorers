@@ -69,7 +69,7 @@ export function displayGallery(photos, rover, sol, camera) {
   setupGalleryIcons(photos, rover, sol, camera);
 }
 
-export function setupGalleryIcons(photos, rover, sol, camera) {
+export function setupGalleryIcons(rover, sol, camera) {
   const heartIcons = document.querySelectorAll('.heart-icon');
   heartIcons.forEach(icon => {
     const photoId = icon.dataset.photoId;

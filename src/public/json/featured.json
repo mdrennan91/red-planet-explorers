@@ -64,11 +64,27 @@
         "sol": "1192"
     },
     {
-        "id": "875013",
+        "id": "1206594",
+        "camera": "NAVCAM",
+        "earth_date": "2023-11-09",
+        "img_src": "https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04002/opgs/edr/ncam/NLB_752760350EDR_F1050418NCAM00400M_.JPG",
+        "rover": "Curiosity",
+        "sol": "4002"
+    },
+    {
+        "id": "603922",
+        "camera": "MAST",
+        "earth_date": "2016-12-20",
+        "img_src": "http://mars.jpl.nasa.gov/msl-raw-images/msss/01555/mcam/1555ML0079860020604803E01_DXXX.jpg",
+        "rover": "Curiosity",
+        "sol": "1555"
+    },
+    {
+        "id": "1237359",
         "camera": "NAVCAM_LEFT",
-        "earth_date": "2021-08-21",
-        "img_src": "https://mars.nasa.gov/mars2020-raw-images/pub/ods/surface/sol/00180/ids/edr/browse/ncam/NLF_0180_0682930843_867EBY_N0070000NCAM00315_07_0LLJ01_1200.jpg",
+        "earth_date": "2024-04-04",
+        "img_src": "https://mars.nasa.gov/mars2020-raw-images/pub/ods/surface/sol/01111/ids/edr/browse/ncam/NLF_1111_0765554685_691ECM_N0512794NCAM13110_01_195J01_1200.jpg",
         "rover": "Perseverance",
-        "sol": "180"
+        "sol": "1111"
     }
 ]
