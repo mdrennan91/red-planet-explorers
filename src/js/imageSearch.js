@@ -1,5 +1,5 @@
 import { loadHeaderFooter, getParam } from "./utils.mjs";
-import { updateRoverDetails, roverImages, getRoverDetails } from "./Search.mjs";
+import { updateRoverDetails, getRoverDetails } from "./Search.mjs";
 
 loadHeaderFooter();
 

@@ -69,7 +69,7 @@ export function displayGallery(photos, rover, sol, camera) {
   setupGalleryIcons(photos, rover, sol, camera);
 }
 
-export function setupGalleryIcons(rover, sol, camera) {
+export function setupGalleryIcons(photos, rover, sol, camera) {
   const heartIcons = document.querySelectorAll('.heart-icon');
   heartIcons.forEach(icon => {
     const photoId = icon.dataset.photoId;
@@ -106,7 +106,7 @@ function handlePageChange(newPage) {
   const rover = getParam('rover');
   const sol = getParam('sol');
   const camera = getParam('camera');
-  
+
   const url = `index.html?rover=${rover}&sol=${sol}&camera=${camera || ''}&page=${newPage}`;
   window.location.href = url;
 }

@@ -1,4 +1,3 @@
-import { addFavorite, removeFavorite, isFavorited } from './utils.mjs';
 import { setupPagination } from './Pagination.mjs';
 
 const galleryGrid = document.querySelector('.gallery-grid');
@@ -38,41 +37,6 @@ function displayFeaturedGallery(photos) {
       </div>
     `;
   }).join('');
-
-  setupGalleryIcons(photos);
-}
-
-function setupGalleryIcons(photos) {
-  const heartIcons = document.querySelectorAll('.heart-icon');
-  heartIcons.forEach(icon => {
-    const photoId = icon.dataset.photoId;
-
-    if (isFavorited(photoId)) {
-      icon.classList.add('favorited');
-    }
-
-    icon.addEventListener('click', () => {
-      const galleryItem = icon.closest('.gallery-item');
-      const photoSrc = galleryItem.querySelector('img').src;
-
-      const photoDetails = {
-        id: photoId,
-        img_src: photoSrc,
-        rover: photos.find(photo => photo.id === photoId).rover,
-        camera: photos.find(photo => photo.id === photoId).camera,
-        earth_date: galleryItem.getAttribute('data-earth-date'),
-        sol: photos.find(photo => photo.id === photoId).sol
-      };
-
-      if (isFavorited(photoId)) {
-        removeFavorite(photoId);
-        icon.classList.remove('favorited');
-      } else {
-        addFavorite(photoDetails);
-        icon.classList.add('favorited');
-      }
-    });
-  });
 }
 
 function handlePageChange(newPage) {
