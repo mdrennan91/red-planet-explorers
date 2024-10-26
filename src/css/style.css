@@ -27,6 +27,7 @@ main section {
   margin-bottom: 20px; 
 }
 
+
 /*
 ---------------------------------------------------------
 ------------------- HEADER/ FOOTER ----------------------
@@ -34,12 +35,10 @@ main section {
 */
 
 #main-header {
-  grid-column: 2;
   grid-row: 1;
 }
 
 .header-container {
-  grid-column: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -166,7 +165,6 @@ main section {
 }
 
 #main-footer {
-  grid-column: 2;
   grid-row: 3;
 }
 
@@ -270,7 +268,7 @@ main section {
 .mission::after {
   content: "";
   display: block;
-  width: 1200px;
+  width: 100%;
   height: 2px;
   margin: 20px auto 0;
   background-color: #ff6347; 
@@ -284,6 +282,7 @@ main section {
   display: flex;
   justify-content: center; 
   width: 100%;
+  margin: 10px 20px
 }
 
 .rover-grid {
@@ -796,4 +795,244 @@ main section {
   color: white;
   margin: 10px 0;
   font-family: 'Noto Sans Display', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 800px) {
+  .rover-grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(1, 1fr); 
+    margin: 0;
+  }
+
+  .divider {
+    padding: 0 10px;
+  }
+
+  .mission {
+    font-size: 1.2rem;
+    padding: 0;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  #rover-name {
+    font-size: 4rem;
+    text-align: center;
+  }
+  
+  .hero-text p {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .social-icon img {
+    width: 40px; 
+    height: 40px;
+  }
+
+  .header-container {
+    padding: 20px;
+    max-height: 70px; 
+    overflow: hidden; 
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .nav-links ul {
+    gap: 10px;
+    padding-left: 30px;
+  }
+
+  .logo img {
+    max-width: 70px; 
+    height: auto; 
+  }
+
+  .gallery-item p {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .photo-view {
+    padding: 0;
+    margin: 20px 5px;
+  }
+
+  #photo-details h3 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  #photo-details p {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .search-camera-container {
+    flex-direction: column; 
+    align-items: center;  
+  }
+
+  .search-photos, 
+  .camera-info {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .camera-info h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .camera-info li {
+    font-size: 1rem;
+  }
+
+  .search-photos h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .filter-container {
+    width: 80%;
+  }
+  
+  .filter-options {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-controls label {
+    font-size: 1.1rem;
+  }
+  
+  .filter-controls select {
+    margin-right: 10px;
+  }
+  
+  .filter-controls select,
+  .filter-controls button {
+    font-size: 1rem;
+  }
+
+  #mars-weather-banner {
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-align: center;  
+  }
+}
+
+
+
+
+
+
+
+
+@media (max-width: 500px) {
+  .rover-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mission {
+    font-size: 1rem;
+  }
+
+  .hero-text h1 {
+    font-size: 3rem;
+  }
+
+  #rover-name {
+    font-size: 3rem;
+  }
+  
+  .hero-text p {
+    font-size: 1.3em;
+  }
+
+  .social-icon img {
+    width: 25px; 
+    height: 25px;
+  }
+
+  .socials {
+    gap: 5px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .logo img {
+    max-width: 55px; 
+    height: auto; 
+  }
+
+  .nav-links ul {
+    gap: 8px;
+    padding-left: 0;
+  }
+
+  .lower-header .rover-icon img {
+    width: 40px;
+    height: auto;
+  }
+  
+  .lower-header .rover-icon span {
+    font-size: 12px;
+  }
+
+  .footer-container {
+    padding: 10px 20px;
+  }
+
+  .gallery-item p {
+    font-size: 1rem;
+  }
+
+  .lower-header .rover-icon {
+    margin: 0 10px;
+  }
+
+  .lower-header .rover-icon span {
+    font-size: 10px;
+  }
+  
+  .filter-options h3 {
+    font-size: 2rem;
+  }
+
+  #mars-weather-banner {
+    padding: 10px 20px;
+    font-size: .8rem;  
+  }
+
+  .header-container {
+    padding: 10px;
+    max-height: 70px; 
+    overflow: hidden; 
+  }
 }
