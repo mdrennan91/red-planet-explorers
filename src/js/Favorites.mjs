@@ -34,7 +34,6 @@ function setupFavoritesPageIcons() {
 
 export function initFavoritesGallery() {
   const favorites = getFavorites();
-  console.log('Favorites data:', favorites);
   if (favorites.length > 0) {
     setupFilterOptions(favorites);
     displayFavorites(favorites.slice(0, photosPerPage));
