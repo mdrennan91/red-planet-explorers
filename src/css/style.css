@@ -937,12 +937,6 @@ main section {
   .filter-controls button {
     font-size: 1rem;
   }
-
-  #mars-weather-banner {
-    padding: 10px 20px;
-    font-size: 1rem;
-    text-align: center;  
-  }
 }
 
 
@@ -1023,11 +1017,6 @@ main section {
   
   .filter-options h3 {
     font-size: 2rem;
-  }
-
-  #mars-weather-banner {
-    padding: 10px 20px;
-    font-size: .8rem;  
   }
 
   .header-container {

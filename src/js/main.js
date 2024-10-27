@@ -1,6 +1,5 @@
 import { loadHeaderFooter } from "./utils.mjs";
 import { getRoverDetails } from "./Search.mjs";
-import { displayMarsWeather } from './Weather.mjs';
 
 loadHeaderFooter();
 
@@ -25,4 +24,3 @@ async function updateRoverPhotoCounts() {
 }
 
 updateRoverPhotoCounts();
-displayMarsWeather();
