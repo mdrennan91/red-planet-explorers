@@ -35,12 +35,16 @@ function setupFavoritesPageIcons() {
 export function initFavoritesGallery() {
   const favorites = getFavorites();
   if (favorites.length > 0) {
-    setupFilterOptions(favorites);
-    displayFavorites(favorites.slice(0, photosPerPage));
-    setupPagination(favorites.length, photosPerPage, currentPage, handlePageChange);
+      setupFilterOptions(favorites);
+      displayFavorites(favorites.slice(0, photosPerPage));
+      setupPagination(favorites.length, photosPerPage, currentPage, handlePageChange);
   } else {
-    galleryGrid.innerHTML = '<p>No favorite photos found.</p>';
+      galleryGrid.innerHTML = '<p>No favorite photos found.</p>';
   }
+  // Initialize the Remove All button
+  document.getElementById('remove-all-btn').addEventListener('click', () => {
+      clearAllFavorites();
+  });
 }
 
 function handlePageChange(newPage) {
@@ -133,10 +137,22 @@ function applyFilter(favorites) {
 
 function clearFilter(favorites) {
   document.getElementById('filter-rover').value = '';
-  document.getElementById('filter-sol').innerHTML = '<option value="">Select Sol</option>'; // Reset sol dropdown
-  document.getElementById('filter-camera').innerHTML = '<option value="">Select Camera</option>'; // Reset camera dropdown
+  document.getElementById('filter-sol').innerHTML = '<option value="">Select Sol</option>';
+  document.getElementById('filter-camera').innerHTML = '<option value="">Select Camera</option>';
 
   filteredFavorites = favorites;
   displayFavorites(favorites.slice(0, photosPerPage));
   setupPagination(favorites.length, photosPerPage, currentPage, handlePageChange);
+}
+
+function clearAllFavorites() {
+  localStorage.removeItem('favorites');
+  
+  filteredFavorites = [];
+  
+  galleryGrid.innerHTML = '<p>No favorite photos found.</p>';
+  
+  document.getElementById('filter-rover').innerHTML = '<option value="">Select Rover</option>';
+  document.getElementById('filter-sol').innerHTML = '<option value="">Select Sol</option>';
+  document.getElementById('filter-camera').innerHTML = '<option value="">Select Camera</option>';
 }
