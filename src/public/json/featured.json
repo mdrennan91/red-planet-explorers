@@ -27,7 +27,7 @@
         "id": "496569",
         "camera": "MAST",
         "earth_date": "2012-10-22",
-        "img_src": "http://mars.jpl.nasa.gov/msl-raw-images/msss/00075/mcam/0075MR0005640250103753E01_DXXX.jpg",
+        "img_src": "https://mars.jpl.nasa.gov/msl-raw-images/msss/00075/mcam/0075MR0005640250103753E01_DXXX.jpg",
         "rover": "Curiosity",
         "sol": "75"
     },
@@ -35,7 +35,7 @@
         "id": "612441",
         "camera": "MAHLI",
         "earth_date": "2017-02-04",
-        "img_src": "http://mars.jpl.nasa.gov/msl-raw-images/msss/01600/mhli/1600MH0003080010601875C00_DXXX.jpg",
+        "img_src": "https://mars.jpl.nasa.gov/msl-raw-images/msss/01600/mhli/1600MH0003080010601875C00_DXXX.jpg",
         "rover": "Curiosity",
         "sol": "1600"
     },
@@ -59,7 +59,7 @@
         "id": "528676",
         "camera": "NAVCAM",
         "earth_date": "2015-12-13",
-        "img_src": "http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01192/opgs/edr/ncam/NLB_503314709EDR_F0512322NCAM07753M_.JPG",
+        "img_src": "https://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01192/opgs/edr/ncam/NLB_503314709EDR_F0512322NCAM07753M_.JPG",
         "rover": "Curiosity",
         "sol": "1192"
     },
@@ -75,7 +75,7 @@
         "id": "603922",
         "camera": "MAST",
         "earth_date": "2016-12-20",
-        "img_src": "http://mars.jpl.nasa.gov/msl-raw-images/msss/01555/mcam/1555ML0079860020604803E01_DXXX.jpg",
+        "img_src": "https://mars.jpl.nasa.gov/msl-raw-images/msss/01555/mcam/1555ML0079860020604803E01_DXXX.jpg",
         "rover": "Curiosity",
         "sol": "1555"
     },
